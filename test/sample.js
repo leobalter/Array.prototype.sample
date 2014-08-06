@@ -9,6 +9,6 @@ author: Tyler Kellen & Ashley G. Williams
 var emptyArray = [];
 var result = Array.prototype.sample.call(emptyArray);
 
-if (emptyArray !== result) {
+if (result !== undefined) {
   $ERROR('Expected sample on empty array to return undefined');
 }
