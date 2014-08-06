@@ -5,3 +5,10 @@
 description: Array.prototype.sample should return a pseudo-random element from an array.
 author: Tyler Kellen & Ashley G. Williams
 ---*/
+
+var emptyArray = [];
+var result = Array.prototype.sample.call(emptyArray);
+
+if (emptyArray !== result) {
+  $ERROR('Expected sample on empty array to return undefined');
+}

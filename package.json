@@ -8,11 +8,11 @@
   ],
   "main": "reference-implementation/index.js",
   "scripts": {
-    "test": "test262-harness --prelude=reference-implementation/index.js --consoleCommand=\"node\" --runner=console --reporter=tap test/*.js"
+    "test": "test262-harness --prelude=reference-implementation/index.js --consoleCommand=\"node\" --runner=console --reporter=json test/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/domenic/Array.prototype.sample.git"
+    "url": "https://github.com/awtk/Array.prototype.sample.git"
   },
   "keywords": [
     "ecmascript",
