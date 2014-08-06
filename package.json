@@ -1,0 +1,26 @@
+{
+  "name": "array.prototype.sample",
+  "version": "1.0.0",
+  "description": "Tests and polyfill for the ES proposal to add Array.prototype.sample",
+  "authors": [
+    "Tyler Kellen <tyler@sleekcode.net>",
+    "Ashley G. Williams <heyashleyashley@gmail.com>"
+  ],
+  "main": "reference-implementation/index.js",
+  "scripts": {
+    "test": "test262-harness --prelude=reference-implementation/index.js --consoleCommand=\"node\" --runner=console --reporter=tap test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/domenic/Array.prototype.sample.git"
+  },
+  "keywords": [
+    "ecmascript",
+    "array",
+    "sample"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "test262-harness": "bterlson/test262-harness"
+  }
+}
