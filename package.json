@@ -8,7 +8,7 @@
   ],
   "main": "reference-implementation/index.js",
   "scripts": {
-    "test": "test262-harness --prelude=reference-implementation/index.js --consoleCommand=\"node\" --runner=console --reporter=json test/*.js"
+    "test": "test262-harness --prelude=reference-implementation/index.js --consoleCommand=\"node\" --runner=node --reporter=tap test/*.js"
   },
   "repository": {
     "type": "git",
