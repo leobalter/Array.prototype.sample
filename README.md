@@ -24,19 +24,19 @@ We propose the addition of an `Array.prototype.sample` method, such that the abo
 ```
 var arr = [1, 2, 3, 4, 5, 6]
 arr.sample();
-// => 3
+// => [3]
 arr.sample(2);
 // => [6,2]
 
 var arr2 = [];
 arr.sample();
-// => nil
+// => []
 arr.sample(3);
 // => []
 
 ```
 
-The sample function would choose a random element, or the random `n` elements, from the array. If the array is empty, the first form returns `nil`, and the second form returns an empty array.
+The sample function would choose a random element, or the random `n` elements, from the array.
 
 ## FAQs
 
@@ -44,7 +44,7 @@ The sample function would choose a random element, or the random `n` elements, f
 
 We rejected the term `random()` as it is used in the `Math` library already and we didn't wish to overload the term.
 
-The term `sample()` was taken from the [Array#sample method introduced in Ruby 1.9.1 core](http://www.ruby-doc.org/core-1.9.1/Array.html#method-i-sample). We like that it is unlike any other name in the current namespace and that it makes sense with selecting both one or multiple elements from an array.
+The term `sample()` was taken from the [Array#sample method introduced in Ruby 1.9.1 core](http://www.ruby-doc.org/core-1.9.1/Array.html#method-i-sample). We like that it is unlike any other name in the current namespace and that it makes sense with selecting both one or multiple elements from an array. It is also implemented by Lodash.
 
 #### Acknowledgements
 
