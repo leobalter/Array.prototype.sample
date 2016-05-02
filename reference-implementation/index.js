@@ -1,26 +1,62 @@
-"use strict";
+Array.prototype.sample = function(count) {
 
-Array.prototype.sample = function (n) {
-  if (this.length === 0) {
-    return [];
+  // Let O be ? ToObject(this value).
+  let O = this;
+  // ... validates ToObject
+
+  // Let len be ? ToLength(? Get(O, "length")).
+  var len = new Array(O.length).length;
+
+  // If count is not present, let relativeCount be 1
+  var relativeCount = arguments.length === 0 ? 1 : new Number(count);
+
+  // Else, let relativeCount be ? ToLength(len).
+  if (Number.isNaN(relativeCount) || relativeCount <= 0) {
+    relativeCount = 0;
+  } else {
+    relativeCount = Math.floor(relativeCount);
   }
-  if (arguments.length === 0) {
-    return [this[Math.floor(Math.random()*this.length)]];
+
+  // If len is 0, return ? ArraySpeciesCreate(O, 0).
+  if (len === 0) {
+    return [].slice.call(O, 0, 0);
   }
-  if (parseInt(n) !== n) {
-    throw TypeError("argument must be a number");
+
+  // Let A be ? ArraySpeciesCreate(O, relativeCount).
+  var A = [].slice.call(O, 0, relativeCount);
+
+  // Let k be 0
+  var k = 0;
+
+  // Repeat, while k < relativeCount
+  while ( k < relativeCount ) {
+
+    // Let Pk be ! ToString(k).
+    let Pk = k.toString();
+
+    // Let random be a random number from 0 to len - 1.
+    let random = Math.floor(Math.random()*len);
+
+    // Let sample be a ! ToString(random).
+    let sample = random + "";
+
+    // Let kPresent be ? HasProperty(O, sample).
+    let kPresent = sample in O;
+
+    // If kPresent is true, then
+    if ( kPresent ) {
+
+      // Let kValue be ? Get(O, sample).
+      let kValue = O[sample];
+
+      // Perform ? CreateDataPropertyOrThrow(A, Pk, kValue).
+      A[Pk] = kValue;
+    }
+
+    // Increase k by 1
+    k += 1;
   }
-  if (n <= 0) {
-    throw RangeError("argument must greater than zero");
-  }
-  let randNum;
-  let result = [];
-  let dupe = this.slice();
-  let count = n > this.length ? this.length : n;
-  for(var i=0; i<count; i++) {
-    randNum = Math.floor(Math.random()*dupe.length);
-    result.push(dupe[randNum]);
-    dupe.splice(randNum, 1);
-  }
-  return result;
+
+  // Return A
+  return A;
 };
