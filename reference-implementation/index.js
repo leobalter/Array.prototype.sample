@@ -5,7 +5,7 @@ Array.prototype.sample = function(count) {
   // ... validates ToObject
 
   // Let len be ? ToLength(? Get(O, "length")).
-  var len = new Array(O.length).length;
+  var len = Math.max(0, Math.min(O.length, Number.MAX_SAFE_INTEGER));
 
   // If count is not present, let relativeCount be 1
   var relativeCount = arguments.length === 0 ? 1 : new Number(count);
